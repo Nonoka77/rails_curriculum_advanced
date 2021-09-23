@@ -39,7 +39,7 @@ class Article < ApplicationRecord
 
   has_one_attached :eye_catch
 
-  enum state: { draft: 0, published: 1 }
+  enum state: { draft: 0, published: 1, publish_wait: 2 }
 
   validates :slug, slug_format: true, uniqueness: true, length: { maximum: 255 }, allow_blank: true
   validates :title, presence: true, uniqueness: true, length: { maximum: 255 }
@@ -63,6 +63,7 @@ class Article < ApplicationRecord
   scope :new_arrivals, -> { viewable.order(published_at: :desc) }
   scope :by_category, ->(category_id) { where(category_id: category_id) }
   scope :title_contain, ->(word) { where('title LIKE ?', "%#{word}%") }
+  scope :past_published, -> { where('published_at <= ?', Time.current)}
 
   def build_body(controller)
     result = ''

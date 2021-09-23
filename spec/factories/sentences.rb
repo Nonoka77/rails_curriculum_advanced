@@ -10,6 +10,5 @@
 
 FactoryBot.define do
   factory :sentence do
-    body {'hello'}
   end
 end
