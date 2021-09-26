@@ -28,6 +28,20 @@
 
 FactoryBot.define do
   factory :article do
-    
+    sequence(:title) { |n| "title_#{n}" }
+    sequence(:slug) { |n| "slug_#{n}" }
+    category
+
+    trait :draft do
+      state { :draft }
+    end
+    trait :publish_wait do
+      published_at { DateTime.now.since(1.hours) }
+      state {:publish_wait}
+    end
+    trait :published do
+      published_at { DateTime.now.ago(1.hours) }
+      state {:published}
+    end
   end
 end
