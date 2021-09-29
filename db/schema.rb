@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_09_29_091440) do
+ActiveRecord::Schema.define(version: 2021_09_29_093003) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -71,7 +71,7 @@ ActiveRecord::Schema.define(version: 2021_09_29_091440) do
     t.index ["category_id"], name: "index_articles_on_category_id"
     t.index ["deleted_at"], name: "index_articles_on_deleted_at"
     t.index ["published_at"], name: "index_articles_on_published_at"
-    t.index ["slug"], name: "index_articles_on_slug"
+    t.index ["slug"], name: "index_articles_on_slug", unique: true
     t.index ["title"], name: "index_articles_on_title", unique: true
     t.index ["uuid"], name: "index_articles_on_uuid"
   end
