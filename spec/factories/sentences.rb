@@ -10,6 +10,6 @@
 
 FactoryBot.define do
   factory :sentence do
-
+    body {'Test body'}
   end
 end
