@@ -19,6 +19,7 @@
 
 FactoryBot.define do
   factory :article_block do
-    
+    article
+    blockable_type
   end
 end
