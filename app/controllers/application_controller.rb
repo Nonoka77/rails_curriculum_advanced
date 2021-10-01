@@ -59,7 +59,8 @@ class ApplicationController < ActionController::Base
       categories: true
     }
   end
+
   def rescue403
-    render file: '/public/403', status: 403
+    render file: '/public/403', status: :forbidden
   end
 end
