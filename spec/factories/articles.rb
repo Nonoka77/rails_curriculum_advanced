@@ -31,7 +31,6 @@ FactoryBot.define do
     sequence(:title) { |n| "title_#{n}" }
     sequence(:slug) { |n| "slug_#{n}" }
     category #belong
-    author
 
     trait :draft do
       state { :draft }
@@ -43,6 +42,36 @@ FactoryBot.define do
     trait :published do
       published_at { DateTime.now.ago(1.hours) }
       state {:published}
+    end
+
+    trait :with_author do
+      #articleモデルの属性以外のデータをファクトリに含める
+      transient do
+        sequence(:author_name) { |n| "test_author_name_#{n}" }
+        sequence(:tag_slug) { |n| "test_author_slug_#{n}" }
+      end
+      after(:build) do | article, evaluator| #article作成して、その記事のauthorをbuildしている。
+        article.author = build(:author, name: evaluator.author_name, slug: evaluator.tag_slug )
+      end
+    end
+
+    trait :with_tag do
+      transient do
+        sequence(:tag_name) { |n| "test_tag_name_#{n}" }
+        sequence(:tag_slug) { |n| "test_tag_slug_#{n}" }
+      end
+      after(:build) do |article, evaluator|
+        article.tags << build(:tag, name: evaluator.tag_name, slug: evaluator.tag_slug )
+      end
+    end
+
+    trait :with_sentence do
+      transient do
+        sequence(:sentence_body) { |n| "test_body_#{n}" }
+      end
+      after(:build) do |article, evaluator|
+        article.sentences << create(:sentence, body: evaluator.sentence_body)
+      end
     end
   end
 end

@@ -18,8 +18,7 @@
 
 FactoryBot.define do
   factory :author do
-    type { 'Author' }
-    sequence(:name) { |n| "author#{n}" }
-    sequence(:slug) { |n| "article_author#{n}" }
+    sequence(:name) { |n| "test_author#{n}" }
+    sequence(:slug) { |n| "test_author_slug_#{n}" }
   end
 end
