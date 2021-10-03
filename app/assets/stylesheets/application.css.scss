@@ -77,3 +77,18 @@
     height: 100% !important;
   }
 }
+
+.embed-twitter {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%;
+  margin: 2rem auto;
+
+  iframe {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100% !important;
+    height: 100% !important;
+  }
+}
