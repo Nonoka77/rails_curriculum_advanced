@@ -31,6 +31,7 @@ FactoryBot.define do
     sequence(:title) { |n| "title_#{n}" }
     sequence(:slug) { |n| "slug_#{n}" }
     category #belong
+    eyecatch_width { 100 }
 
     trait :draft do
       state { :draft }
