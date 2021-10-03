@@ -1,3 +1,2 @@
 class TagPolicy < TaxonomyPolicy
-
 end

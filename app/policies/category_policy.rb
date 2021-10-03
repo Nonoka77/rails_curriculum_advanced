@@ -1,3 +1,2 @@
 class CategoryPolicy < TaxonomyPolicy
-
 end

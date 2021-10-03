@@ -1,3 +1,2 @@
 class AuthorPolicy < TaxonomyPolicy
-
 end
