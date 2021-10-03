@@ -40,17 +40,18 @@ RSpec.describe 'AdminAritclesEyecatches', type: :system do
     end
     context 'アイキャッチ横幅調整機能' do
       it '100以上700未満のとき、正常に表示される' do
+        eyecatch_width = rand(100..700)
         click_on 'プレビュー'
         switch_to_window windows.last
         expect(page).to have_selector("img[src$='kimetu.jpeg']")
       end
       it '100以下のときにエラーが表示される' do
-        fill_in 'アイキャッチ幅', with: 90
+        fill_in 'アイキャッチ幅', with: rand(99)
         click_on '更新する'
         expect(page).to have_content('100以上の値にしてください')
       end
       it '700以上のときにエラーが表示される' do
-        fill_in 'アイキャッチ幅', with: 720
+        fill_in 'アイキャッチ幅', with: rand(701..1000)
         click_on '更新する'
         expect(page).to have_content('700以下の値にしてください')
       end
