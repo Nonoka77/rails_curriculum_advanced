@@ -16,4 +16,16 @@ class Embed < ApplicationRecord
   enum embed_type: { youtube: 0, twitter: 1 }
 
   validates :identifier, length: { maximum: 200 }
+
+  def split_id_from_youtube_url
+    identifier.split('/').last if youtube?
+  end
+
+  def embed_icon
+    if youtube?
+      '<i class="fa fa-youtube-play"></i>'.html_safe
+    elsif twitter?
+      '<i class="fa fa-twitter"></i>'.html_safe
+    end
+  end
 end
