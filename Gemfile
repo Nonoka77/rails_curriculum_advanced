@@ -140,3 +140,5 @@ group :test do
   gem 'timecop'
   gem 'webdrivers'
 end
+
+gem "nokogiri", ">= 1.6.7.rc"
