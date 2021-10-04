@@ -5,7 +5,7 @@ module ArticleBlockDecorator
     elsif medium?
       '<i class="fa fa-image"></i>'.html_safe
     elsif embed?
-      '<i class="fa fa-youtube-play"></i>'.html_safe
+      blockable.youtube? ? content_tag(:i, nil,  class: "fa fa-youtube-play") : content_tag(:i, nil, class: "fa fa-twitter")
     end
   end
 
