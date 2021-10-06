@@ -24,5 +24,12 @@
         br
         br
 
+      = f.input :main_images, as: :file, hint: 'JPEG/PNG (1200x400)', input_html: { multiple: true }
+
+      - if @site.main_images.attached?
+        = image_tag @site.main_images_url(:ogp), class: 'img-responsive'
+        br
+        br
+
     .box-footer
       = f.button :submit, '保存', class: %w[btn btn-primary]
