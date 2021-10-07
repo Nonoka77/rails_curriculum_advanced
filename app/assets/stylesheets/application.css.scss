@@ -13,12 +13,23 @@
  *= require_self
  */
 
-.jumbotron {
-  background: url('/images/cover.jpg') center / cover;
-  color: white;
+@import 'swiper/swiper-bundle';
 
+.main_image {
+  background: url( main_image ) center/cover;
+  width: 100%;
+  color: white;
   a {
     color: white;
+  }
+
+  .swiper-container {
+
+    .swiper-wrapper {
+
+      .swiper-slider {
+      }
+    }
   }
 }
 
