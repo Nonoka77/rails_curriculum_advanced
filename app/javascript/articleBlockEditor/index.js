@@ -6,7 +6,7 @@ import Swiper from 'swiper/bundle';
 // import styles bundle
 import 'swiper/css/bundle';
 // init Swiper:
-const swiper = new Swiper(...);
+const swiper = new Swiper('.swiper-container ');
 
 (function ($, undefined) {
   $.fn.articleBlockEditor = function () {
