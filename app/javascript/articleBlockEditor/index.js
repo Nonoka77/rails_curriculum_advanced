@@ -2,8 +2,6 @@ import React from 'react'
 import { render } from 'react-dom'
 import Editor from './editor'
 
-// init Swiper:
-const swiper = new Swiper('.swiper-container ');
 
 (function ($, undefined) {
   $.fn.articleBlockEditor = function () {
