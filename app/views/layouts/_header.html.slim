@@ -1,5 +1,17 @@
-header.jumbotron.jumbotron-fluid
-  .container
-    h1 = link_to current_site.name, root_path
-    p.lead = current_site.subtitle
+javascript:
+  $(function() {
+    new Swiper('.swiper-container', {
+      loop: true,
+      autoplay: {
+        delay: 3000,
+      },
+    })
+  })
 
+header.jumbotron.jumbotron-fluid.main_image.swiper-container
+  .swiper-wrapper
+    = current_site.main_images.each do |main_image|
+      .swiper-slide
+        = image_tag main_image, class: "main_image"
+        h1 = link_to current_site.name, root_path
+        p.lead = current_site.subtitle
