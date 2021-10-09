@@ -1,6 +1,4 @@
 class ArticleMailer < ApplicationMailer
-  default from: 'notifications@example.com'
-
   def report_summary
     @published_article_count = Article.published.count
     @article_published_at_yesterday = Article.published_at_yesterday
